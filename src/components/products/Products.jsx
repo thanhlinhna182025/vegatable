@@ -23,15 +23,22 @@ const Title = styled.div`
   font-weight: 700;
   margin-bottom: 20px;
   position: relative;
+  text-transform: uppercase;
   &::after {
     content: "";
-    width: 40%;
-    height: 2px;
+    width: 20%;
+    height: 3px;
     background-color: #bff073;
     position: absolute;
     bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 1s ease;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+    }
   }
 `;
 const ProductsListName = styled.div`

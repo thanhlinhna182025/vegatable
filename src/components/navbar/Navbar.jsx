@@ -28,8 +28,8 @@ const Logo = styled.img`
   })}
 `;
 const Slogan = styled.span`
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 44px;
+  font-weight: 700;
   background: -webkit-linear-gradient(
     rgba(34, 193, 195, 1),
     rgba(253, 187, 45, 1)
@@ -106,10 +106,10 @@ const Dropdown = styled.div`
   })}
 `;
 const DropdownButton = styled.div`
-  opacity: 0.5;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  position: relative;
 `;
 const DropdownContent = styled.div`
   display: none;
@@ -117,15 +117,25 @@ const DropdownContent = styled.div`
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  top: 30px;
+  left: 0;
   z-index: 1;
   & a {
-    color: black;
-    padding: 12px 16px;
+    padding: 3px;
     text-decoration: none;
     display: block;
+    color: #828282;
   }
   ${Dropdown}:hover & {
     display: block;
+  }
+  &:before {
+    content: "";
+    width: 100%;
+    height: 20px;
+    top: -13px;
+    left: 0;
+    position: absolute;
   }
 `;
 const Striangle = styled.div`
@@ -143,6 +153,7 @@ const Striangle = styled.div`
   }
 `;
 const ItemLink = styled.a`
+  padding: 5px;
   :hover {
     background-color: #fff;
   }
@@ -164,12 +175,24 @@ const Navbar = () => {
               <WrapperDropdown>
                 <Clear />
                 <DropDownNavbarContainer>
-                  <DropdownItem>Home</DropdownItem>
-                  <DropdownItem>Products</DropdownItem>
-                  <DropdownItem>News</DropdownItem>
-                  <DropdownItem>About</DropdownItem>
-                  <DropdownItem>Sign In</DropdownItem>
-                  <DropdownItem>Sign Up</DropdownItem>
+                  <DropdownItem>
+                    <Link> Home</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link> Products</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link> News</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link> About</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link> Sign In</Link>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <Link> Sign Up</Link>
+                  </DropdownItem>
                   <ExitButton>
                     <ExitToApp />
                     <span>Exit</span>
@@ -186,25 +209,28 @@ const Navbar = () => {
             </DropdownButton>
           </Dropdown>
           <Dropdown>
-            <DropdownButton>Products</DropdownButton>
-            <Striangle></Striangle>
-            <DropdownContent className="content">
-              <ItemLink href="#">Vegatables</ItemLink>
-              <ItemLink href="#">Fruits</ItemLink>
-              <ItemLink href="#">Mushroom</ItemLink>
-              <ItemLink href="#">Meat</ItemLink>
-              <ItemLink href="#">Sea food</ItemLink>
-            </DropdownContent>
+            <DropdownButton>
+              Products
+              <Striangle></Striangle>
+              <DropdownContent>
+                <ItemLink>Vegatables</ItemLink>
+                <ItemLink>Fruits</ItemLink>
+                <ItemLink>Meat</ItemLink>
+                <ItemLink>Sea food</ItemLink>
+              </DropdownContent>
+            </DropdownButton>
           </Dropdown>
           <Dropdown>
-            <DropdownButton>News</DropdownButton>
-            <Striangle></Striangle>
-            <DropdownContent>
-              <ItemLink href="#">Experience choose food</ItemLink>
-              <ItemLink href="#">Kitchen together</ItemLink>
-              <ItemLink href="#">Food preservation tips </ItemLink>
-              <ItemLink href="#">Promotion Information </ItemLink>
-            </DropdownContent>
+            <DropdownButton>
+              News
+              <Striangle></Striangle>
+              <DropdownContent>
+                <ItemLink href="#">Experience choose food</ItemLink>
+                <ItemLink href="#">Kitchen together</ItemLink>
+                <ItemLink href="#">Food preservation tips</ItemLink>
+                <ItemLink href="#">Promotion Information</ItemLink>
+              </DropdownContent>
+            </DropdownButton>
           </Dropdown>
           <Dropdown>
             <DropdownButton>Contacts</DropdownButton>

@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  background-color: #fff;
+  background-color: #ccc;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -19,8 +19,9 @@ const Container = styled.div`
   border-radius: 4px;
   padding: 10px;
   box-shadow: 0 10px 10px rgba(204, 204, 204, 0.253);
+
   :hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: all 0.5 ease;
   }
 `;
@@ -60,14 +61,14 @@ const PriceContainer = styled.div`
 const NewPrice = styled.span``;
 const OldPrice = styled.span`
   position: relative;
-  color: #ccc;
+  font-size: 14px;
   &::before {
     content: "";
     width: 100%;
     height: 2px;
     position: absolute;
     color: inherit;
-    background-color: #ccc;
+    background-color: #828282;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
@@ -77,21 +78,31 @@ const ProductCover = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(204, 204, 204, 0.5);
+  width: 0%;
+  height: 0%;
+  transform: scale(0);
+  transition: all 0.5s ease;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 10px 0;
-  padding: 15%;
-  display: none;
-  z-index: 1;
+  gap: 20px 0;
   opacity: 0;
   ${Container}:hover & {
-    display: flex;
+    width: 100%;
+    height: 100%;
     opacity: 1;
-    transition: opacity 1s ease;
+    transform: scale(1);
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
   }
 `;
 const Top = styled.div``;
@@ -106,6 +117,7 @@ const Center = styled.div`
   gap: 0 10px;
 `;
 const Icon = styled.div`
+  cursor: pointer;
   padding: 10px;
   border: 1px solid #fff;
   :hover {
@@ -152,14 +164,18 @@ const Product = ({ product }) => {
             </Link>
           </Icon>
           <Icon>
-            <ShoppingCartOutlined style={{ color: "white" }} />
+            <Link to={`/product/${product.id}`}>
+              <ShoppingCartOutlined style={{ color: "white" }} />
+            </Link>
           </Icon>
           <Icon>
             <HelpCenterOutlined style={{ color: "white" }} />
           </Icon>
         </Center>
         <Bottom>
-          <AddCartButton>ADD TO CART</AddCartButton>
+          <Link to={`/product/${product.id}`}>
+            <AddCartButton>ADD TO CART</AddCartButton>
+          </Link>
         </Bottom>
       </ProductCover>
     </Container>

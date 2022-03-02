@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
  }
  a{
    text-decoration: none;
+   padding:0;
  }
  .custom-btn {
   color: #fff;

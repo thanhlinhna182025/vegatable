@@ -19,15 +19,22 @@ const Title = styled.h4`
   margin-bottom: 50px;
   ${Tablet({ marginBottom: "30px" })}
   position: relative;
+  text-transform: uppercase;
   &::after {
     content: "";
-    width: 40%;
-    height: 2px;
+    width: 20%;
+    height: 3px;
     background-color: #bff073;
     position: absolute;
     bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 1s ease;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+    }
   }
 `;
 const Wrapper = styled.div`
@@ -96,7 +103,7 @@ const BigSale = () => {
 
   let interval;
   const startTimer = () => {
-    const countDownDate = new Date("February 28 2022").getTime();
+    const countDownDate = new Date("March 15 2022").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;

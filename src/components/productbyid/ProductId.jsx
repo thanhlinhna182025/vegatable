@@ -44,11 +44,12 @@ const ImageContainer = styled.div`
 `;
 const Image = styled.img`
   width: 100%;
-  object-fit: cover;
-  cursor: crosshair;
+  transition: transform 2s, filter 1.5s ease-in-out;
+  transform-origin: center center;
+  filter: brightness(70%);
   :hover {
-    transform: scale(1.2);
-    transition: all 0.5 ease;
+    filter: brightness(100%);
+    transform: scale(1.5);
   }
 `;
 const InfoContainer = styled.div`
